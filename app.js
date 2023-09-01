@@ -1,6 +1,5 @@
 const grid = document.querySelector(".container-grid");
 
-
 function removeAllChildsNodes(parent) {
   while (parent.hasChildNodes()) {
     parent.removeChild(parent.firstChild);
@@ -17,6 +16,8 @@ function setUpGrid(size) {
     let gridCell = document.createElement("div");
     gridCell.setAttribute("id", `${i}`);
     gridCell.classList.add("grid-cell");
+    gridCell.addEventListener("mouseover", drawCell);
+    gridCell.addEventListener("mousedown", drawCell);
     grid.appendChild(gridCell);
   }
 }
@@ -34,6 +35,29 @@ pixelsSelectInput.addEventListener("input", (event) => {
   setUpGrid(pixelsValue);
 });
 
+let drawColor = "#000000";
+
+const colorPicker = document.getElementById("color-picker");
+colorPicker.addEventListener("input", setColor);
+
+function setColor(event) {
+  const colorChosen = event.target.value;
+  drawColor = colorChosen;
+  console.log(drawColor);
+}
+
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+
+
+function drawCell(event) {
+  if (event.type === "mouseover" && !mouseDown) return;
+    console.log(event.type)
+    let currentDiv = event.target;
+    currentDiv.style.backgroundColor = `${drawColor}`;
+  
+}
+
 Window.onload(setUpGrid(16));
-
-
