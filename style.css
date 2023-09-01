@@ -25,8 +25,7 @@ body {
 }
 
 .grid-cell {
-  background-color: rgb(123, 83, 158);
-  border: 1px solid red;
+  background-color: #f7f7f7;
 }
 
 #color-picker {
@@ -40,12 +39,12 @@ body {
   cursor: pointer;
 }
 
-#color-picker::-webkit-color-swatch{
-    border-radius: 50%;
-    border: none;
+#color-picker::-webkit-color-swatch {
+  border-radius: 50%;
+  border: none;
 }
 
-#color-picker::-moz-color-swatch{
-    border-radius: 50%;
-    border: none;
+#color-picker::-moz-color-swatch {
+  border-radius: 50%;
+  border: none;
 }
