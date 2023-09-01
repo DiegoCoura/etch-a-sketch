@@ -1,11 +1,21 @@
 body {
-  background-color: rgb(184, 178, 172);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(207, 207, 207);
+  font-family: "Press Start 2P", cursive;
+}
+
+h1 {
+  margin: 50px auto 100px;
 }
 
 .main-container {
   display: flex;
   flex-wrap: wrap-reverse;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .settings {
@@ -13,14 +23,76 @@ body {
   flex-direction: column;
   height: 500px;
   width: 250px;
+  gap: 25px;
+  justify-content: space-around;
+}
+
+button {
+  background-color: transparent;
   border: 2px solid black;
+  border-radius: 15px;
+  font-size: 18px;
+  height: 50px;
+  transition: 0.5s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background-color: #545454;
+  border-radius: 50%;
+  border: 2px solid rgb(117, 117, 117);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #646464;
+  border-radius: 50%;
+  border: 1px solid rgb(97, 97, 97);
+}
+
+#color-picker {
+  align-self: center;
+}
+
+label {
+  text-align: center;
 }
 
 .container-grid {
   display: grid;
   width: 500px;
   height: 500px;
-  border: 2px solid black;
   flex-shrink: 0;
 }
 
@@ -47,4 +119,49 @@ body {
 #color-picker::-moz-color-swatch {
   border-radius: 50%;
   border: none;
+}
+
+@media (max-width: 850px) {
+  h1 {
+    font-size: 26px;
+    margin: 50px auto 50px;
+  }
+
+  .main-container {
+    gap: 50px;
+  }
+
+  .settings {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    gap: 10px;
+    justify-content: space-around;
+  }
+
+  .container-grid {
+    display: grid;
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 26px;
+    margin: 50px auto 50px;
+  }
+
+  .main-container {
+    gap: 5px;
+    flex-direction: column-reverse;
+  }
+
+  .container-grid {
+    display: grid;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+  }
 }
